@@ -1,20 +1,18 @@
 
-/**
- * Beschreiben Sie hier die Klasse Packstation.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
 public class Packstation
 {
-   
-    
-    /**
-     * Konstruktor für Objekte der Klasse Packstation
-     */
-    public Packstation()
+    private Paket[] s;
+    private Paket[] m;
+    private Paket[] l;
+
+    public Packstation(int pS, int pM, int pL)
     {
-       
+       s = new Paket[pS];
+       m = new Paket[pM];
+       l = new Paket[pL];
+    }
+    public void anzahlFaecherAusgeben(){
+        System.out.println();
     }
 
     
@@ -24,14 +22,14 @@ public class Packstation
      * @param  ?   
      * @return  ?
      */
-    public void freieFaecherAusgeben()
+    public void freieFaecherAusgeben(char pGr)
     {
          // Einen Ausdruck simulieren. Dies ist als ein Vorschlag zu verstehen 
          // und soll erweitert werden.
         System.out.println("##################");
         System.out.println("# Packstation");
         System.out.println("# Anzahl freie Fächer der Größe S:");
-        System.out.println("# " + variable + " freie Fächer.");
+        System.out.println("# " + var + " freie Fächer.");
         System.out.println("##################");
         System.out.println();
     }
