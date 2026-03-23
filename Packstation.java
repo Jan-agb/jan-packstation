@@ -50,53 +50,48 @@ public class Packstation
     
     private int freieFaecherZaehlen(Paket[] array)
     {
-        int count = 0;
+        int var = 0;
 
         for(int i = 0; i < array.length; i++)
         {
             if(array[i] == null)
             {
-                count++;
+                var++;
             }
         }
 
-        return count;
+        return var;
     }
-
     
-    public boolean paketEinlagern(Paket p)
+    public boolean paketEntnehmen(String id)
     {
-        char g = p.getGroesse();
+        if(entfernePaket(s,id))
+            return true;
+        if(entfernePaket(m,id))
+            return true;
+        if(entfernePaket(l,id))
+            return true;
 
-        if(g == 'S')
-        {
-            if(einlagernArray(s,p))
-            return true;
-            if(einlagernArray(m,p))
-            return true;
-            if(einlagernArray(l,p))
-            return true;
-        }
+        System.out.println("Paket nicht gefunden.");
+        return false;
+    }
+    
+    public boolean paketEinlagern(Paket pPaket)
+    {
+        char g = pPaket.getGroesse();
 
-        if(g == 'M')
-        {
-            if(einlagernArray(m,p))
-            return true;
-            if(einlagernArray(l,p))
-            return true;
-        }
+        if (g == 'S')
+            return einlagernArray(s, pPaket) || einlagernArray(m, pPaket) || einlagernArray(l, pPaket);
 
-        if(g == 'L')
-        {
-            if(einlagernArray(l,p))
-            return true;
-        }
+        if (g == 'M')
+            return einlagernArray(m, pPaket) || einlagernArray(l, pPaket);
+
+        if (g == 'L')
+            return einlagernArray(l, pPaket);
 
         System.out.println("Kein passendes Fach frei");
         return false;
     }
-
-    
     private boolean einlagernArray(Paket[] array, Paket p)
     {
         for(int i = 0; i < array.length; i++)
@@ -104,30 +99,10 @@ public class Packstation
             if(array[i] == null)
             {
                 array[i] = p;
-                System.out.println("Paket " + p.getId() + " eingelagert.");
+                System.out.println("Paket #" + p.getId() + " eingelagert.");
                 return true;
             }
         }
-        return false;
-    }
-
-    
-    public boolean paketVorhanden(String id)
-    {
-        return sucheArray(s,id) || sucheArray(m,id) || sucheArray(l,id);
-    }
-
-    
-    public boolean paketEntnehmen(String id)
-    {
-        if(entfernePaket(s,id))
-        return true;
-        if(entfernePaket(m,id))
-        return true;
-        if(entfernePaket(l,id))
-        return true;
-
-        System.out.println("Paket nicht gefunden.");
         return false;
     }
 
@@ -144,6 +119,14 @@ public class Packstation
         }
         return false;
     }
+    
+
+    
+    public boolean paketVorhanden(String id)
+    {
+        return sucheArray(s,id) || sucheArray(m,id) || sucheArray(l,id);
+    }
+
 
     private boolean sucheArray(Paket[] array, String id)
     {
