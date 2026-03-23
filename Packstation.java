@@ -92,14 +92,14 @@ public class Packstation
         System.out.println("Kein passendes Fach frei");
         return false;
     }
-    private boolean einlagernArray(Paket[] array, Paket p)
+    private boolean einlagernArray(Paket[] array, Paket pPaket)
     {
         for(int i = 0; i < array.length; i++)
         {
             if(array[i] == null)
             {
-                array[i] = p;
-                System.out.println("Paket #" + p.getId() + " eingelagert.");
+                array[i] = pPaket;
+                System.out.println("Paket #" + pPaket.getId() + " eingelagert.");
                 return true;
             }
         }

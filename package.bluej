@@ -1,11 +1,11 @@
 #BlueJ package file
-dependency1.from=Packstation
-dependency1.to=Paket
+dependency1.from=Test
+dependency1.to=Packstation
 dependency1.type=UsesDependency
 dependency2.from=Test
-dependency2.to=Packstation
+dependency2.to=Paket
 dependency2.type=UsesDependency
-dependency3.from=Test
+dependency3.from=Packstation
 dependency3.to=Paket
 dependency3.type=UsesDependency
 editor.fx.0.height=894
@@ -38,7 +38,7 @@ target1.showInterface=false
 target1.type=ClassTarget
 target1.width=120
 target1.x=10
-target1.y=170
+target1.y=160
 target2.height=70
 target2.name=Packstation
 target2.showInterface=false
